@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "adwaita",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AparokshaUI/Adwaita",
+      "state" : {
+        "revision" : "b00b7430340d8636b701d834a0c18185d710b07e",
+        "version" : "0.2.1"
+      }
+    },
+    {
+      "identity" : "levenshteintransformations",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/david-swift/LevenshteinTransformations",
+      "state" : {
+        "revision" : "c5665914a26d3f96e1b724acc7254b344acf4d05",
+        "version" : "0.1.2"
+      }
+    }
+  ],
+  "version" : 2
+}

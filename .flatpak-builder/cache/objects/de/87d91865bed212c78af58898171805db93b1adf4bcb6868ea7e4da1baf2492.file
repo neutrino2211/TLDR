@@ -1,0 +1,4 @@
+[Application]
+name=io.github.neutrino2211.tldr
+runtime=org.gnome.Platform/aarch64/45
+sdk=org.gnome.Sdk/aarch64/45

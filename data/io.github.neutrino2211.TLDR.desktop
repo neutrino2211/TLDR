@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+
+Name=TLDR
+Comment=A template for creating GNOME apps with Swift
+Categories=Development;GNOME;
+
+Icon=io.github.neutrino2211.TLDR
+Exec=TLDR
+Terminal=false
