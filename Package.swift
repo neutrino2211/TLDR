@@ -4,17 +4,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "Adwaita Template",
+    name: "TLDR",
     platforms: [
         .macOS(.v13)
     ],
     dependencies: [
-        .package(url: "https://github.com/AparokshaUI/Adwaita", from: "0.2.0"),
+        .package(url: "https://github.com/AparokshaUI/Adwaita", .branch("main")),
         .package(url: "https://github.com/AparokshaUI/Localized", from: "0.2.0")
     ],
     targets: [
         .executableTarget(
-            name: "AdwaitaTemplate",
+            name: "TLDR",
             dependencies: [
                 .product(name: "Adwaita", package: "Adwaita"),
                 .product(name: "Localized", package: "Localized")
