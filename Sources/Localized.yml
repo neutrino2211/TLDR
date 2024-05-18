@@ -1,7 +1,13 @@
 default: en
 
+welcome:
+    en: Welcome to TLDR
+
+tagline:
+    en: Make sense of random questions and Google searches
+
 helloWorld:
-    en: Hello, world!
+    en: Hello, World!
     de: Hallo, Welt!
 
 newWindow:
