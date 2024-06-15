@@ -8,10 +8,10 @@ struct ToolbarView: View {
     var view: Body {
         HeaderBar.end {
             Menu(icon: .default(icon: .openMenu), app: app, window: window) {
-                MenuButton(Loc.newWindow, window: false) {
+                MenuButton(Loc.preferences, window: false) {
                     app.addWindow("main")
                 }
-                .keyboardShortcut("n".ctrl())
+                .keyboardShortcut(",".ctrl())
                 MenuButton(Loc.closeWindow) {
                     window.close()
                 }

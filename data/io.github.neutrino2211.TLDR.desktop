@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=0.1
+Type=Application
+
+Name=TLDR
+Comment=Make sense of your random searches
+Categories=Utilities;GNOME;
+
+Icon=io.github.neutrino2211.TLDR
+Exec=TLDR
+Terminal=false

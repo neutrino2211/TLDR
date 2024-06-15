@@ -10,8 +10,8 @@ helloWorld:
     en: Hello, World!
     de: Hallo, Welt!
 
-newWindow:
-    en: New Window
+preferences:
+    en: Preferences
     de: Neues Fenster
 
 closeWindow:
