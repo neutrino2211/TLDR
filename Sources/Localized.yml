@@ -6,6 +6,9 @@ welcome:
 tagline:
     en: Make sense of random questions and Google searches
 
+about:
+    en: About TLDR
+
 helloWorld:
     en: Hello, World!
     de: Hallo, Welt!

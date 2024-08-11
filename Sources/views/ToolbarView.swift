@@ -4,18 +4,19 @@ struct ToolbarView: View {
 
     var app: GTUIApp
     var window: GTUIApplicationWindow
+    var showAbout: Binding<Bool>
+    var showPreferences: Binding<Bool>
 
     var view: Body {
         HeaderBar.end {
             Menu(icon: .default(icon: .openMenu), app: app, window: window) {
                 MenuButton(Loc.preferences, window: false) {
-                    app.addWindow("main")
+                    showPreferences.wrappedValue.toggle()
                 }
-                .keyboardShortcut(",".ctrl())
-                MenuButton(Loc.closeWindow) {
-                    window.close()
+                .keyboardShortcut("p".ctrl())
+                MenuButton(Loc.about) {
+                		showAbout.wrappedValue.toggle()
                 }
-                .keyboardShortcut("w".ctrl())
                 MenuSection {
                     MenuButton(Loc.quit, window: false) {
                         app.quit()

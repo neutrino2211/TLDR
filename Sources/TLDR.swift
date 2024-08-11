@@ -4,7 +4,7 @@
 import Adwaita
 
 @main
-struct AdwaitaTemplate: App {
+struct TLDR: App {
 
     let id = "io.github.neutrino2211.TLDR"
     var app: GTUIApp!
@@ -14,32 +14,18 @@ struct AdwaitaTemplate: App {
     var scene: Scene {
         if firstRun {
 		    	Window(id: "first-run") { window in
-		    		FirstRun(app: app, window: window, onCompleteCallback: {
-		    			print("Done")
-		    			firstRun = false
-		    			app.showWindow("main")
-		    		})
-					.valign(.center)
-					.halign(.center)
-					.topToolbar {
-						HeaderBar
-							.empty()
-							.headerBarTitle {
-								Text("")
-							}
-					}
+		    		FirstRunView(app: app, window: window, onCompleteCallback: {
+					firstRun = false
+					app.showWindow("main")
+				})
 		    }
-		    .defaultSize(width: 450, height: 600)
+		    .defaultSize(width: 480, height: 600)
         } else {
         		Window(id: "main") { window in
-        			Text(Loc.helloWorld)
-		            .padding()
-		            .topToolbar {
-		                ToolbarView(app: app, window: window)
-		            }
+				MainView(app: app, window: window)
+				.frame(minWidth: 400, minHeight: 600)
         		}
-        		.defaultSize(width: 450, height: 600)
+        		.defaultSize(width: 480, height: 600)
         }
     }
-
 }
