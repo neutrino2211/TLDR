@@ -55,7 +55,12 @@ struct MainView : View {
             		issues: .init(string: "https://github.com/neutrino2211/TLDR/issues")
             	)
             	.dialog(visible: $showPreferences) {
-            		PreferencesView(app: app, window: window)
+            		PreferencesView(
+            			app: app,
+            			window: window,
+            			aiOptions: $aiSettings,
+            			searchOptions: $searchSettings
+            		)
             	}
         }
         .bottomToolbar {

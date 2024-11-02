@@ -4,38 +4,42 @@ struct PreferencesView: View {
 
     var app: GTUIApp
     var window: GTUIApplicationWindow
+    var aiOptions: Binding<AIProviderSettings>
+    var searchOptions: Binding<SearchEngineSettings>
 
-    @State private var addDialogText = ""
-    @State private var focusEntry: Signal = .init()
+    	@State("searchEngines") private var searchEngines: [SearchEngine] = Array(searchEnginesMap.values)
+    @State("aiProviders") private var aiProviders: [AIProvider] = Array(aiProvidersMap.values)
 
-    @State("searchEngines") var searchEngine: [SearchEngine] = [
-    		.init(id: "google", url: "https://google.com/search?q=", label: "Google"),
-    		.init(id: "duck", url: "https://duckduckgo.com/search?q=", label: "DuckDuckGo")
-    	]
-   	@State("selectedSearchEngine") private var selectedSearchEngine = "google"
+   	@State("searchEngineOptions") private var searchEngineOptions: SearchEngineSettings = .init()
+   	@State("aiProviderOptions") private var aiProviderOptions: AIProviderSettings = .init()
 
-   	@State("aiProviders") var aiProviders: [AIProvider] = [
-   		.init(id: "ollama", label: "Ollama"),
-   		.init(id: "fireworks-ai", label: "Fireworks AI"),
-   		.init(id: "open-ai", label: "OpenAI"),
-   		.init(id: "groq", label: "Groq")
-   	]
-   	@State("selectedAiProvider") private var selectedAiProvider = "ollama"
-   	@State("selectedAiProviderKey") private var selectedAiProviderKey = ""
+   	public func listenProvider(provider: Binding<String>) -> Self {
+		provider.wrappedValue = $aiProviderOptions.provider.wrappedValue
+   		return self
+   	}
 
     var view: Body {
         VStack {
 			FormSection("Search") {
 				Form {
-					ComboRow("Search Engine", selection: $selectedSearchEngine, values: searchEngine)
+					ComboRow("Search Engine", selection: $searchEngineOptions.engine, values: searchEngines)
+
+					if searchEngineOptions.engine == "custom" {
+						EntryRow("Custom Search URL", text: $searchEngineOptions.customUrl)
+					}
 				}
 			}
 			.padding()
 
-			FormSection("AI Provider") {
+			FormSection("AI") {
 				Form {
-					ComboRow("AI Provider", selection: $selectedAiProvider, values: aiProviders)
-					PasswordEntryRow("Provider API Key", text: $selectedAiProviderKey)
+					ComboRow("Provider", selection: $aiProviderOptions.provider, values: aiProviders)
+					EntryRow("Provider Model", text: $aiProviderOptions.model)
+					PasswordEntryRow("Provider API Key", text: $aiProviderOptions.key)
+
+					if aiProviderOptions.provider == "custom" {
+						EntryRow("Custom AI URL", text: $aiProviderOptions.customUrl)
+					}
 				}
 			}.padding()
         }
