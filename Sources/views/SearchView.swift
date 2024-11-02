@@ -3,6 +3,7 @@ import Adwaita
 struct SearchView: View {
     var app: GTUIApp
     var window: GTUIApplicationWindow
+    var queryProgress: Double
 
 	var view: Body {
 		VStack {
@@ -10,8 +11,7 @@ struct SearchView: View {
 			.style("title-1")
 			.padding()
 
-			ProgressBar()
-			.pulseStep(0.1)
+			ProgressBar(value: queryProgress, total: 100)
 		}
 		.padding()
 	}

@@ -9,15 +9,17 @@ let package = Package(
         .macOS(.v13)
     ],
     dependencies: [
-        .package(url: "https://github.com/AparokshaUI/Adwaita", .branch("main")),
-        .package(url: "https://github.com/AparokshaUI/Localized", from: "0.2.0")
+        .package(url: "https://github.com/AparokshaUI/Adwaita", branch: "main"),
+        .package(url: "https://github.com/AparokshaUI/Localized", from: "0.2.0"),
+        .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "2.6.0")
     ],
     targets: [
         .executableTarget(
             name: "TLDR",
             dependencies: [
                 .product(name: "Adwaita", package: "Adwaita"),
-                .product(name: "Localized", package: "Localized")
+                .product(name: "Localized", package: "Localized"),
+                .product(name: "SwiftSoup", package: "SwiftSoup")
             ],
             path: "Sources",
             resources: [

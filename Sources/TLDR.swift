@@ -15,9 +15,9 @@ struct TLDR: App {
         if firstRun {
 		    	Window(id: "first-run") { window in
 		    		FirstRunView(app: app, window: window, onCompleteCallback: {
-					firstRun = false
-					app.showWindow("main")
-				})
+						firstRun = false
+						app.showWindow("main")
+					})
 		    }
 		    .defaultSize(width: 480, height: 600)
         } else {

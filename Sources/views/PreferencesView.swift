@@ -49,15 +49,24 @@ struct PreferencesView: View {
 				.style("heading")
 			}
         }
+        .bottomToolbar {
+        		Button("Save") {
+        			print("Save")
+        			aiOptions.wrappedValue = aiProviderOptions
+        			searchOptions.wrappedValue = searchEngineOptions
+        		}
+        		.padding()
+        		.style("suggested-action")
+        }
     }
 
     var actionRows: View {
         Form {
             ActionRow("Rows have a title")
-                .subtitle(selectedSearchEngine)
+                .subtitle(searchEngineOptions.engine)
             ActionRow("Rows can have suffix widgets")
                 .suffix {
-                    Button("Action") { }
+                    Button("A1051ction") { }
                         .verticalCenter()
                 }
         }
