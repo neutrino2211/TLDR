@@ -39,8 +39,6 @@ func ShellCommand(command: String) throws -> (Pipe, Process) {
 
 func OllamaCommandRunner(progressCallback: @escaping (Double, Bool) -> ()) {
 	var progressDouble = 0.1
-	var lastDouble = 0.0
-	var started = false
 
 	do {
 		let copyScript = try ShellCommand(command: "cp /app/bin/install_ollama.sh ~/Downloads/install_ollama.sh").0.toString()
@@ -54,7 +52,6 @@ func OllamaCommandRunner(progressCallback: @escaping (Double, Bool) -> ()) {
 
 		reader.readabilityHandler = { fh in
 			let out = fh.availableData.toString()
-			started = true
 
 			print(out)
 
